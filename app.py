@@ -1,6 +1,8 @@
 #pip install streamlit
 import streamlit as st
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
 st.title('Hello World')
 st.header('This is a header')
@@ -37,3 +39,10 @@ data=st.file_uploader("Upload a file", type=["csv", "txt"])
 if data:
     df=pd.read_csv(data)
     st.dataframe(df)
+
+y=np.linspace(0, 10, 100)
+x=np.sin(y)
+
+fig,ax=plt.subplots()
+ax.plot(y, x)
+st.pyplot(fig)
